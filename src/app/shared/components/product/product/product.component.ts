@@ -1,4 +1,4 @@
-import { Product } from './../../../models/product';
+import { Product, Results } from './../../../models/product';
 import { Component } from '@angular/core';
 import { ProductService } from '../../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
@@ -14,14 +14,15 @@ export class ProductComponent {
 
   product!:Product;
   products!: Product[];
+  result!:Results
 
   constructor(public ps:ProductService){
   this.ps.getProduct(4).subscribe(
     data =>{this.product = data},
     error =>{alert(error[0])});
 
-    this.ps.getProducts(10,4).subscribe(
-      data => { this.products = data.results;console.log(this.products)},
+    this.ps.getProducts(10,2).subscribe(
+      data => { this.result = data;console.log(this.result)},
       error =>{ alert('error')}
     )
   }

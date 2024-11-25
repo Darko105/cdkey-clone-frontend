@@ -15,8 +15,8 @@
 </div> -->
 
 
-<div class="products-wrapper" *ngIf="products">
-  <div class="product-wrapper" *ngFor="let ps of products">
+<div class="products-wrapper" *ngIf="result">
+  <div class="product-wrapper" *ngFor="let ps of result.results">
       <img [src]="ps.coverImage" alt="{{ps.name}}">
     <div class="product-details">
       <div class="name">

@@ -101,6 +101,11 @@ export class Product {
   }
 }
 
+export class Results{
+  results!: Product[];
+  items_count!: number;
+}
+
 export class Offer {
   id!: string;
   price!: number;
