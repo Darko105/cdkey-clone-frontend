@@ -20,7 +20,7 @@ export class ProductComponent {
     data =>{this.product = data},
     error =>{alert(error[0])});
 
-    this.ps.getProducts(3).subscribe(
+    this.ps.getProducts(10,4).subscribe(
       data => { this.products = data.results;console.log(this.products)},
       error =>{ alert('error')}
     )

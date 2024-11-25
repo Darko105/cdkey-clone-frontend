@@ -21,7 +21,7 @@ export class ProductService {
   getProduct(kinguinId:number){
     return this.hc.get<Product>(crossOverUrl + KinguinApiUrl + '/' + kinguinId,this.apiInHeader);
   }
-  getProducts(limit:number){
-    return this.hc.get<any>(crossOverUrl + KinguinApiUrl + '?limit='+limit,this.apiInHeader);
+  getProducts(limit:number,page:number){
+    return this.hc.get<any>(crossOverUrl + KinguinApiUrl + '?limit='+limit+'&page='+page,this.apiInHeader);
   }
 }
