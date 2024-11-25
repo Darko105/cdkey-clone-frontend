@@ -17,14 +17,14 @@ export class ProductComponent {
   result!:Results
 
   constructor(public ps:ProductService){
-  this.ps.getProduct(4).subscribe(
-    data =>{this.product = data},
-    error =>{alert(error[0])});
+  // this.ps.getProduct('').subscribe(
+  //   data =>{this.product = data},
+  //   error =>{alert(error[0])});
 
-    this.ps.getProducts(10,2).subscribe(
-      data => { this.result = data;console.log(this.result)},
-      error =>{ alert('error')}
-    )
+    // this.ps.getProducts().subscribe(
+    //   data => { this.result = data;console.log(this.result)},
+    //   error =>{ alert('error')}
+    // )
   }
 
 }

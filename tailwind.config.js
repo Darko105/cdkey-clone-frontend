@@ -5,7 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      boxShadow: {
+        'subtle-glow': '0 0 8px 4px rgba(128, 0, 128, 0.5)',
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,40 @@
+<div class="bg-[#1F143D] flex flex-row items-start justify-between p-8 m-auto max-w-[85%]">
+  <!-- Left Section: Hero Content -->
+  <div class="w-full pr-3 relative  h-full">
+
+
+    <div class="relative" *ngIf="hero">
+      <a href="#">
+        <img
+        [src]="safeCoverImage(hero.coverImage)"
+        alt="Hero Background"
+        class="w-full h-[320px] object-fill"
+      />
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Right Section: News/Deals -->
+  <div class="w-1/3 bg-[#12022f] p-2 rounded-lg" *ngIf="results">
+    <!-- Each News/Deal Item -->
+    <a href="" *ngFor="let ps of results.results">
+      <div class="text-white mb-4 flex flex-row">
+        <div class=" w-[100] h-[20] ">
+          <img
+          [src]="safeCoverImage(ps.coverImage)"
+          class="pr-2 rounded-sm object-cover"
+          width="100"
+          height="76"
+          alt="">
+        </div>
+        <div>
+          <h2 class="text-purple-300 text-xs font-semibold">COMING SOON</h2>
+          <p class="font-bold text-[10px]">
+            {{ ps.name | slice:0:30 }}{{ ps.name.length > 20 ? '...' : '' }}
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+

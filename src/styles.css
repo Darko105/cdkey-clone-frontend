@@ -4,3 +4,11 @@
 @tailwind utilities;
 
 
+@layer utilities {
+  .hover\:glow-effect:hover {
+    box-shadow: 0 0 8px 4px rgba(128, 0, 128, 0.5); /* Subtle purple glow */
+    color: rgba(128, 0, 128, 1); /* Optional: Change text to match the glow */
+    transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+}
+

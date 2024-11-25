@@ -18,11 +18,11 @@ export class ProductService {
     }
   }
 
-  getProduct(kinguinId:number){
-    return this.hc.get<Product>(crossOverUrl + KinguinApiUrl + '/' + kinguinId,this.apiInHeader);
+  getProduct(params:string){
+    return this.hc.get<Results>(crossOverUrl + KinguinApiUrl + params,this.apiInHeader);
   }
-  getProducts(limit:number,page:number){
-    return this.hc.get<Results>(crossOverUrl + KinguinApiUrl + '?limit='+limit+'&page='+page,this.apiInHeader);
+  getProducts(params:string){
+    return this.hc.get<Results>(crossOverUrl + KinguinApiUrl + params,this.apiInHeader);
   }
 
   searchProduct(param:string){
