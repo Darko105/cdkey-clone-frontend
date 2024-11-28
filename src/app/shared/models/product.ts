@@ -30,7 +30,7 @@ export class Product {
   ageRating: string;
   steam: string;
   images: Images;
-  coverImage:string;
+  coverImage:string; 
 
   constructor(
     kinguinId: number,
