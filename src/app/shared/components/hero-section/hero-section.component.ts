@@ -5,6 +5,8 @@ import { ProductService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RandomUtil } from '../../models/random-util';
+import test from 'node:test';
+import { crossOverUrl } from '../../../../environments/variables';
 
 
 
@@ -27,19 +29,25 @@ export class HeroSectionComponent {
   hero!:Product;
 
   constructor(private ps:ProductService, private sanitizer:DomSanitizer){
+    let testCover;
 
     this.price = RandomUtil.randomNumber(1,100)
-    this.kinguinParam = "?category=game&isPreorder=yes&limit=4"
+    this.kinguinParam = "?isPreorder=yes&limit=5"
     this.ps.getProducts(this.kinguinParam).subscribe(
       data => {this.results = data,console.log(this.results.results)},
       error => {alert(error.message)}
     );
 
-    this.kinguinParam = "?&imit=1&orderBy=kingiunId&name=fifa&priceFrom="+this.price
+    this.kinguinParam = "?name=valorant";
     this.ps.getProduct(this.kinguinParam).subscribe(
-      data => {this.hero = data.results[0],console.log(this.hero.videos[0])},
+      data => {this.hero = data.results[0],
+        testCover = this.hero.images.cover
+        console.log(testCover)
+      },
       error => {alert(error.message)}
     );
+
+
 
   }
 
