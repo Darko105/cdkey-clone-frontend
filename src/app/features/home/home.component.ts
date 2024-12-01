@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../core/services/api-service.service';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'; // Import the HttpClientModule
-import { NavComponent } from '../../shared/components/nav/nav/nav.component';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section.component';
+import { ProductComponent } from '../../shared/components/product/product/product.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule,NavComponent,HeroSectionComponent], // Use HttpClientModule instead of HttpClient
+  imports: [HeroSectionComponent,CommonModule,ProductComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'] // Corrected the 'styleUrl' to 'styleUrls'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 
-  data: any;
 
-  constructor(private apiService: ApiService) {
+
+  constructor() {
 
   }
 

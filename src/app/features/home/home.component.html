@@ -1,4 +1,100 @@
-<header class="header">
- 
+<header class="header ">
   <app-hero-section></app-hero-section>
+
+  <div class=" w-[90%] relative inline-block text-white px-4 my-2 ml-16">
+    <!-- The before pseudo-element for the horizontal line -->
+    <div class="absolute inset-0 flex justify-between items-center">
+      <span class="w-full h-[3px] bg-white opacity-50"></span>
+    </div>
+
+    <!-- The content box with shadow and text -->
+    <strong class="relative z-10 text-4xl font-bold tracking-wide uppercase bg-[#2c1a4a] py-2 px-6 shadow-xl border border-white">
+      BLACK FRIDAY BEST SELLERS
+    </strong>
+  </div>
+
+
+<div class="product-list grid grid-cols-5 gap-0 ml-[4.5rem] py-4 max-w-[90%]">
+
+  <app-product
+    [product]="{
+    id:'test',
+    discount:44,
+    name:'test',
+
+    coverImage:'https://via.placeholder.com/800x400',
+    price: 22,
+    platformIcon:'https://via.placeholder.com/800x400',
+    currency:'test',
+    oldPrice:'test',
+
+    }">
+  </app-product>
+
+  <app-product
+    [product]="{
+    id:'test',
+    discount:44,
+    name:'test',
+
+    coverImage:'https://via.placeholder.com/800x400',
+    price: 22,
+    platformIcon:'https://via.placeholder.com/800x400',
+    currency:'test',
+    oldPrice:'test',
+
+    }">
+  </app-product>
+
+  <app-product
+    [product]="{
+    id:'test',
+    discount:44,
+    name:'test',
+
+    coverImage:'https://via.placeholder.com/800x400',
+    price: 22,
+    platformIcon:'https://via.placeholder.com/800x400',
+    currency:'test',
+    oldPrice:'test',
+
+    }">
+  </app-product>
+
+  <app-product
+    [product]="{
+    id:'test',
+    discount:44,
+    name:'test',
+
+    coverImage:'https://via.placeholder.com/800x400',
+    price: 22,
+    platformIcon:'https://via.placeholder.com/800x400',
+    currency:'test',
+    oldPrice:'test',
+
+    }">
+  </app-product>
+
+  <app-product
+    [product]="{
+    id:'test',
+    discount:44,
+    name:'test',
+
+    coverImage:'https://via.placeholder.com/800x400',
+    price: 22,
+    platformIcon:'https://via.placeholder.com/800x400',
+    currency:'test',
+    oldPrice:'test',
+
+    }">
+  </app-product>
+
+
+
+</div>
+
+
+
 </header>

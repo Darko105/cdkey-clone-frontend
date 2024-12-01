@@ -1,40 +1,51 @@
-<div class="bg-[#1F143D] flex flex-row items-start justify-between p-8 m-auto max-w-[85%]">
+
+
+
+ <div class="bg-[#1F143D] flex flex-wrap items-start justify-between p-8 m-auto max-w-[90%]">
   <!-- Left Section: Hero Content -->
-  <div class="w-full pr-3 relative  h-full">
-
-
-    <div class="relative" *ngIf="hero">
-      <a href="#">
+  <div class="w-full md:w-2/3 pr-3 relative h-full overflow-hidden">
+    <div
+      class="relative transition-transform duration-700 ease-in-out"
+      [ngStyle]="{ transform: 'translateX(' + slidePosition + '%)' }"
+      *ngIf="currentProduct"
+    >
+      <a href="#" class="w-full">
         <img
-        [src]="hero.images.cover.url || hero.images.cover.thumbnail"
-        alt="Hero Background"
-        class="w-[1000px] h-[400px] object-fill"
-      />
+          [src]="safeCoverImage(currentProduct.images.cover.url)"
+          alt="Hero Slide"
+          class="w-full h-[490px] object-fill rounded-md"
+        />
       </a>
-
+      <div
+        class="details absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-lg shadow-md"
+      >
+        <h2 class="text-lg font-bold">{{ currentProduct.name }}</h2>
+        <p class="text-md">Best Price: ${{ currentProduct.price }}</p>
+      </div>
     </div>
   </div>
 
+
+
   <!-- Right Section: News/Deals -->
-  <div class="w-1/3 bg-[#12022f] p-2  rounded-lg" *ngIf="results">
+  <div class="w-full md:w-1/3 bg-[#12022F] p-4 rounded-lg mt-6 md:mt-0" *ngIf="results">
     <!-- Each News/Deal Item -->
-    <a href="" *ngFor="let ps of results.results">
-      <div class="text-white mb-4 flex flex-row">
-        <div class=" w-[100] h-[20] ">
+    <a href="#" class="block mb-4" *ngFor="let ps of results.results">
+      <div class="text-white flex items-center">
+        <div class="w-[100px] h-[76px] flex-shrink-0">
           <img
-          [src]="ps.images.cover.url"
-          class="pr-2 rounded-sm object-cover"
-          width="100"
-          height="76"
-          alt="">
+            [src]="ps.images.cover.url"
+            class="rounded-sm object-cover w-full h-full"
+            alt=""
+          />
         </div>
-        <div>
+        <div class="ml-3">
           <h2 class="text-purple-300 text-xs font-semibold">COMING SOON</h2>
           <p class="font-bold text-[10px]">
-            {{ ps.name | slice:0:80 }}{{ ps.name.length > 50 ? '...' : '' }}
+            {{ ps.name | slice: 0: 80 }}{{ ps.name.length > 50 ? '...' : '' }}
           </p>
         </div>
       </div>
     </a>
   </div>
-
+</div>

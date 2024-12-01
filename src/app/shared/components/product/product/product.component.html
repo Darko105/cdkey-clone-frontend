@@ -1,34 +1,56 @@
-<!-- <div class="product-wrapper" *ngIf="product">
-  <img [src]="product.coverImage" alt="{{product.name}}">
-  <div class="product-details">
-    <div class="name">
-      {{product.name}}
+<div class="product-card bg-[#1a1339] p-4 rounded-lg shadow-lg text-white w-[250px]" *ngIf="product">
+  <!-- Image Section -->
+  <a
+    [routerLink]="['/product', product.id]"
+    class="relative block transition-transform duration-300 ease-in-out hover:scale-105"
+  >
+    <img
+      [src]="product.coverImage || 'https://via.placeholder.com/250x400'"
+      alt="{{ product.name }}"
+      class="w-full h-[300px] object-cover rounded-md"
+    />
+    <div
+      *ngIf="product.discount"
+      class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+    >
+      -{{ product.discount }}%
     </div>
-    <div class="price">
-      {{product.price}}
+    <div class="absolute bottom-2 left-2 flex items-center space-x-2">
+      <img
+        *ngIf="product.platformIcon"
+        [src]="product.platformIcon"
+        alt="Platform Icon"
+        class="w-6 h-6"
+      />
     </div>
-  </div>
-  <div class="product-action">
-    <div class="buy"></div>
-    <div class="whishlist"></div>
-  </div>
-</div> -->
+  </a>
 
-
-<div class="products-wrapper" *ngIf="result">
-  <div class="product-wrapper" *ngFor="let ps of result.results">
-      <img [src]="ps.coverImage" alt="{{ps.name}}">
-    <div class="product-details">
-      <div class="name">
-        {{ps.name}}
-      </div>
-      <div class="price">
-        {{ps.price}}
-      </div>
-    </div>
-    <div class="product-action">
-      <div class="buy"></div>
-      <div class="whishlist"></div>
-    </div>
+  <!-- Product Details -->
+  <div class="bg-[#0C0020] py-2 px-2  ">
+  <div class="product-details mt-4 bg-[#0C0020]">
+    <h3 class="text-sm font-bold leading-tight truncate">
+      {{ product.name }}
+    </h3>
+    <p class="text-lg font-semibold mt-2">
+      £{{ product.price }}
+    </p>
   </div>
+
+  <!-- Action Buttons -->
+
+  <div class="flex justify-between items-center mt-4">
+    <!-- Wishlist Button -->
+    <button
+      class="wishlist-button px-3 py-2 bg-gray-200 text-red-500 rounded-md hover:bg-gray-300"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0, 0, 700.862, 655.64"><path fill="#bec0d1" d="M350.426,620.282 C376.096,594.618 522.632,447.998 614.241,356.402 C696.315,274.321 694.565,154.685 619.943,80.468 C545.321,6.23 424.657,6.555 350.426,81.183 C276.202,6.555 155.538,6.23 80.917,80.468 C6.295,154.685 4.551,274.321 86.618,356.402 C178.221,447.998 324.776,594.618 350.426,620.282 z"></path></svg>
+    </button>
+    <!-- Buy Button -->
+    <button
+      class="buy-button px-5 py-2 bg-green-500 text-white font-bold rounded-md hover:bg-green-600"
+    >
+      Buy Now
+    </button>
+  </div>
+</div>
 </div>
