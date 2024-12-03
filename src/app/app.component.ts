@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent,NavComponent,CommonModule],
+  imports: [RouterOutlet,NavComponent,CommonModule,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -18,9 +18,6 @@ import { CommonModule } from '@angular/common';
 
 
 export class AppComponent {
-
-
-
 
   title = 'CDkey-Clone';
 }

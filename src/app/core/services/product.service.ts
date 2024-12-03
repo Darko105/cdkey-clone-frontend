@@ -19,7 +19,7 @@ export class ProductService {
   }
 
   getProduct(params:string){
-    return this.hc.get<Results>(crossOverUrl + KinguinApiUrl + params,this.apiInHeader);
+    return this.hc.get<Product>(crossOverUrl + KinguinApiUrl + params,this.apiInHeader);
   }
   getProducts(params:string){
     return this.hc.get<Results>(crossOverUrl + KinguinApiUrl + params,this.apiInHeader);

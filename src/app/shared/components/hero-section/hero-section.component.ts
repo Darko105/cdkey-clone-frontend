@@ -70,11 +70,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ProductService } from '../../../core/services/product.service';
 import { Results, Product } from '../../models/product';
 import { RandomUtil } from '../../models/random-util';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,
+    RouterModule
+  ],
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.css'],
 })
