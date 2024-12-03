@@ -16,11 +16,12 @@
 
 <div class="product-list grid grid-cols-5 gap-0 ml-[4.5rem] py-4 max-w-[90%]">
 
+  <div class="product-items-wrapper" *ngFor="let ps of products.results">
   <app-product
     [product]="{
-    id:'test',
+    id: 'ps.kinguinId',
     discount:44,
-    name:'test',
+    name:'product.name',
 
     coverImage:'https://via.placeholder.com/800x400',
     price: 22,
@@ -31,65 +32,7 @@
     }">
   </app-product>
 
-  <app-product
-    [product]="{
-    id:'test',
-    discount:44,
-    name:'test',
-
-    coverImage:'https://via.placeholder.com/800x400',
-    price: 22,
-    platformIcon:'https://via.placeholder.com/800x400',
-    currency:'test',
-    oldPrice:'test',
-
-    }">
-  </app-product>
-
-  <app-product
-    [product]="{
-    id:'test',
-    discount:44,
-    name:'test',
-
-    coverImage:'https://via.placeholder.com/800x400',
-    price: 22,
-    platformIcon:'https://via.placeholder.com/800x400',
-    currency:'test',
-    oldPrice:'test',
-
-    }">
-  </app-product>
-
-  <app-product
-    [product]="{
-    id:'test',
-    discount:44,
-    name:'test',
-
-    coverImage:'https://via.placeholder.com/800x400',
-    price: 22,
-    platformIcon:'https://via.placeholder.com/800x400',
-    currency:'test',
-    oldPrice:'test',
-
-    }">
-  </app-product>
-
-  <app-product
-    [product]="{
-    id:'test',
-    discount:44,
-    name:'test',
-
-    coverImage:'https://via.placeholder.com/800x400',
-    price: 22,
-    platformIcon:'https://via.placeholder.com/800x400',
-    currency:'test',
-    oldPrice:'test',
-
-    }">
-  </app-product>
+</div>
 
 
 
