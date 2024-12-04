@@ -16,21 +16,152 @@
   </div>
 
   <!-- Generative Section -->
-  <div class="generative-user-actions w-full h-screen border border-white ml-16 p-4">
+  <div class="generative-user-actions w-full h-full ml-16 p-4">
     <ng-container [ngSwitch]="selectedSection">
-      <p *ngSwitchCase="'MY ACCOUNT'">You are viewing your account details.</p>
-      <p *ngSwitchCase="'MY ORDERS'">Here are your orders.</p>
-      <p *ngSwitchCase="'MY CDKEY COINS AND REWARDS'">Manage your CDKey coins and rewards here.</p>
-      <p *ngSwitchCase="'BADGES'">These are your badges.</p>
-      <p *ngSwitchCase="'ADDRESS BOOK'">Here is your address book.</p>
-      <p *ngSwitchCase="'CARDS: STORED PAYMENT METHODS'">Manage your stored payment methods here.</p>
-      <p *ngSwitchCase="'WISHLIST'">Here is your wishlist.</p>
-      <p *ngSwitchCase="'MY PRODUCT REVIEWS'">These are your product reviews.</p>
-      <p *ngSwitchCase="'GIFT CARDS'">View and manage your gift cards here.</p>
-      <p *ngSwitchCase="'PROMOTIONS'">These are the available promotions.</p>
-      <p *ngSwitchCase="'MESSAGES'">Here are your messages.</p>
-      <p *ngSwitchCase="'LOGOUT'">You have been logged out.</p>
-      <p *ngSwitchDefault>Select a section to view details.</p>
+      <div *ngSwitchCase="'MY ACCOUNT'">
+        <!-- Account Information Section -->
+        <div class="bg-[#1c1239] text-white p-8">
+          <h1 class="text-2xl font-bold mb-6">MY ACCOUNT</h1>
+
+          <div class="border border-gray-700 rounded-lg p-6 mb-6n bg-[#0C0020]">
+              <h2 class="text-xl font-bold mb-4">ACCOUNT INFORMATION</h2>
+
+              <div class="mb-4">
+                  <h3 class="text-lg font-semibold mb-2">CONTACT INFORMATION</h3>
+                  <p class="mb-2">SABRI CHRIF</p>
+                  <p>CHRIFSABRI700&#64;GMAIL.COM</p>
+              </div>
+
+              <div class="flex gap-4">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="updateSection('EDIT ACCOUNT INFORMATION')">EDIT INFORMATION</button>
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">CHANGE PASSWORD</button>
+              </div>
+          </div>
+
+          <div class="border border-gray-700 rounded-lg p-6 mb-6 bg-[#0C0020]" *ngIf="UserAddresses[0]?.user_id">
+              <h2 class="text-xl font-bold mb-4">ADDRESS BOOK</h2>
+
+              <div class="flex gap-4">
+                  <div class="w-1/2">
+                      <h3 class="text-lg font-semibold mb-2">DEFAULT BILLING ADDRESS</h3>
+                      <p class="mb-2"> {{userData.first_name}} {{userData.last_name}} </p>
+                      <p class="mb-2"> {{UserAddresses[0].addresse1}}<br>{{UserAddresses[0].addresse2}} </p>
+                      <p class="mb-2"> {{UserAddresses[0].city}}, {{UserAddresses[0].state}}, {{UserAddresses[0].zip_code}}</p>
+                      <p>{{UserAddresses[0].country}}</p>
+                      <p>T: {{userData.phone_number || "add one"}}</p>
+                  </div>
+
+                  <div class="w-1/2">
+                      <h3 class="text-lg font-semibold mb-2">DEFAULT SHIPPING ADDRESS</h3>
+                      <p class="mb-2"> {{userData.first_name}} {{userData.last_name}} </p>
+                      <p class="mb-2"> {{UserAddresses[0].addresse1}}<br>{{UserAddresses[0].addresse2}} </p>
+                      <p class="mb-2"> {{UserAddresses[0].city}}, {{UserAddresses[0].state}}, {{UserAddresses[0].zip_code}}</p>
+                      <p>{{UserAddresses[0].country}}</p>
+                      <p>T: {{userData.phone_number || "add one"}}</p>
+                  </div>
+              </div>
+
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">MANAGE ADDRESSES</button>
+          </div>
+
+          <button class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">DELETE ACCOUNT</button>
+      </div>
+      </div>
+      <div *ngSwitchCase="'MY ORDERS'">
+
+        <!-- Orders Section -->
+
+        <div class=" bg-[#1c1239] text-white p-8 overflow-y-auto max-h-[600px] ">
+
+          <div class="grid grid-cols-2 gap-1" *ngFor="let order of userOrders">
+            <div class="bg-gray-700 rounded-lg p-6 mb-6 ">
+                <img src="{{order.product_img}}" alt="{{order.product_name}}" class="max-w-[100px] max-h-[100px] rounded-lg mb-4">
+                <h2 class="text-2xl font-bold  mb-2"> {{order.product_name}} </h2>
+                <h4 class="text-lg font-semibold mb-2">Price paid : <strong>${{order.total_amount}}</strong> </h4>
+                <code class="bg-gray-800 text-white px-2 py-1 rounded-md">Your Key: <br> {{order.key}} </code>
+            </div>
+        </div>
+
+
+        </div>
+
+
+
+      </div>
+      <div *ngSwitchCase="'MY CDKEY COINS AND REWARDS'">Manage your CDKey coins and rewards here.</div>
+      <div *ngSwitchCase="'BADGES'">These are your badges.</div>
+      <div *ngSwitchCase="'ADDRESS BOOK'">Here is your address book.</div>
+      <div *ngSwitchCase="'CARDS: STORED PAYMENT METHODS'">Manage your stored payment methods here.</div>
+      <div *ngSwitchCase="'WISHLIST'">Here is your wishlist.</div>
+      <div *ngSwitchCase="'MY PRODUCT REVIEWS'">These are your product reviews.</div>
+      <div *ngSwitchCase="'GIFT CARDS'">View and manage your gift cards here.</div>
+      <div *ngSwitchCase="'PROMOTIONS'">These are the available promotions.</div>
+      <div *ngSwitchCase="'MESSAGES'">Here are your messages.</div>
+      <div *ngSwitchCase="'LOGOUT'">You have been logged out.</div>
+      <div *ngSwitchCase="'EDIT ACCOUNT INFORMATION'">
+
+        <!-- EDIT Acount Infomation Section -->
+        <div class="bg-[#1c1239] text-white p-8">
+          <h1 class="text-2xl font-bold mb-6">EDIT ACCOUNT INFORMATION</h1>
+
+          <div class="border border-gray-700 rounded-lg p-6 mb-6 bg-[#0C0020]">
+              <h2 class="text-xl font-bold mb-4">ACCOUNT INFORMATION</h2>
+
+              <ul class="list-none">
+                  <li class="flex items-center mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500 mr-2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>CHANGE EMAIL</span>
+                  </li>
+                  <li class="flex items-center mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500 mr-2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>CHANGE PASSWORD</span>
+                  </li>
+              </ul>
+          </div>
+
+          <div class="border border-gray-700 rounded-lg p-6 mb-6 bg-[#0C0020] input:bg-[#0C0020]">
+              <h2 class="text-xl font-bold mb-4">CHANGE EMAIL AND PASSWORD</h2>
+
+              <div class="mb-4">
+                  <label for="new-email" class="block text-sm font-medium mb-2">ENTER NEW EMAIL*</label>
+                  <input type="email" id="new-email" value="chrifaziz900@gmail.com" class="border border-gray-700 rounded-lg p-2 w-full">
+
+              </div>
+
+              <div class="mb-4">
+                  <label for="current-password" class="block text-sm font-medium mb-2">CURRENT PASSWORD*</label>
+                  <input type="password" id="current-password" class="border border-gray-700 rounded-lg p-2 w-full">
+
+              </div>
+
+              <div class="mb-4">
+                  <label for="new-password" class="block text-sm font-medium mb-2">NEW PASSWORD*</label>
+                  <input type="password" id="new-password" class="border border-gray-700 rounded-lg p-2 w-full">
+
+                  <p class="text-xs text-gray-400">Your password needs to be at least 8 characters long and use 4 different types of characters (Lower Case, Upper Case, Digits, Special Characters).</p>
+                  <p class="text-xs text-gray-400">Password Strength - No Password</p>
+              </div>
+
+              <div class="mb-4">
+                  <label for="confirm-password" class="block text-sm font-medium mb-2">CONFIRM NEW PASSWORD*</label>
+                  <input type="password" id="confirm-password" class="border border-gray-700 rounded-lg p-2 w-full">
+
+              </div>
+
+              <div class="flex gap-4">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">SAVE</button>
+                  <button class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded" (click)="updateSection('MY ACCOUNT')">GO BACK</button>
+              </div>
+          </div>
+      </div>
+
+      </div>
+
+      <div *ngSwitchDefault>Select a section to view details.</div>
     </ng-container>
   </div>
 </div>

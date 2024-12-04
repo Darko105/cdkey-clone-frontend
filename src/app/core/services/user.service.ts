@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserCreationBase, UserCreationResponseBase, UserLoginBase, UserLoginResponseBase } from '../../shared/models/user/user-login-base';
-import { BehaviorSubject } from 'rxjs';
+import { OrderResponseBase, ResponseBillingAddressesBase, UserCreationBase, UserCreationResponseBase, UserLoginBase, UserLoginResponseBase } from '../../shared/models/user/user-login-base';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +21,25 @@ export class UserService {
   }
 
   loginUser(body:UserLoginBase,endPoint:string){
-    return this.hc.post<UserLoginResponseBase>(this.fastApiUrl + endPoint,body)
+    return this.hc.post<UserLoginResponseBase>(this.fastApiUrl + endPoint,body);
   }
 
   registerUser(body:UserCreationBase,param:string){
-    return this.hc.post<UserCreationResponseBase>(this.fastApiUrl + param,body)
+    return this.hc.post<UserCreationResponseBase>(this.fastApiUrl + param,body);
   }
 
+  // updateUserInformation(body,endpoint:string){
+  //   return this.hc.put<
+  // }
+
+  getUserBillingAdresses(param:string){
+    return this.hc.get<ResponseBillingAddressesBase[]>(this.fastApiUrl + param);
+  }
+
+
+  getUserOrders(endPoint:string): Observable<OrderResponseBase[]>{
+    return this.hc.get<OrderResponseBase[]>(this.fastApiUrl + endPoint)
+  }
 
 
 

@@ -42,14 +42,14 @@
 
 
     <div class="wishlist">
-      <a href="#" class="whishlist-logo">
+      <a [routerLink]="['/user','WISHLIST']" class="whishlist-logo">
         <img class="header-link_hover" src="https://www.cdkeys.com/static/version1731319934/frontend/Medialounge/cdkeys/en_GB/images/icons/white/wishlist.svg" alt="" width="42" height="42">
       </a>
     </div>
 
 
     <div *ngIf="checkUserLogedIn" class="user-logo">
-      <a [routerLink]="['/user']">
+      <a [routerLink]="['/user','MY ACCOUNT']">
         <img src="assets/images/cat.jpg" alt="User Avatar" class="h-8 w-8 rounded-full">
       </a>
     </div>
@@ -61,7 +61,7 @@
 
 
     <div class="cart">
-      <a href="#" class="cart-logo">
+      <a [routerLink]="['/user','CARD']" class="cart-logo">
         <img class="header-link_hover" src="https://www.cdkeys.com/static/version1731319934/frontend/Medialounge/cdkeys/en_GB/images/icons/white/basket.svg" alt="" width="39" height="42">
       </a>
     </div>
