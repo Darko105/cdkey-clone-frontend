@@ -28,6 +28,10 @@ export class UserService {
     return this.hc.post<UserCreationResponseBase>(this.fastApiUrl + param,body);
   }
 
+  deleteUser(endPoint:string){
+    return this.hc.delete<any>(this.fastApiUrl+endPoint)
+  }
+
   // updateUserInformation(body,endpoint:string){
   //   return this.hc.put<
   // }
@@ -41,8 +45,7 @@ export class UserService {
     return this.hc.get<OrderResponseBase[]>(this.fastApiUrl + endPoint)
   }
 
-
-
+  setOrder(body:OrderCreationBase)
 
 
   makeUserLogedIn(user:UserLoginResponseBase) {

@@ -15,20 +15,16 @@ import { json } from 'stream/consumers';
 export class NavComponent {
   user!:UserLoginResponseBase;
   userExist!:boolean;
+  userState:boolean;
   constructor(public userService:UserService){
-
+    this.userState = false;
   }
 
   ngOnInit():void{
     this.user = JSON.parse(localStorage.getItem("userData")!)
   }
 
-  checkUserLogedIn():boolean{
 
-    if(this.user){
-      return true;
-    }
 
-    return false;
-  }
+
 }

@@ -183,3 +183,32 @@ export class OrderResponseBase{
       this.key = key;
     }
 }
+
+
+export class OrderCreationBase{
+  product_id:number;
+  product_img: string;
+  product_name: string;
+  user_id: number;
+  order_date: Date;
+  key: string;
+  total_amount: string;
+
+  constructor(
+  product_id:number,
+  product_img: string,
+  product_name: string,
+  user_id: number,
+  order_date: Date,
+  key: string,
+  total_amount: string
+  ){
+    this.product_id = product_id;
+    this.product_img = product_img;
+    this.product_name = product_name;
+    this.user_id = user_id;
+    this.order_date = order_date;
+    this.key = key;
+    this.total_amount = total_amount;
+  }
+}

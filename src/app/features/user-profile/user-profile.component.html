@@ -19,17 +19,19 @@
   <div class="generative-user-actions w-full h-full ml-16 p-4">
     <ng-container [ngSwitch]="selectedSection">
       <div *ngSwitchCase="'MY ACCOUNT'">
+
         <!-- Account Information Section -->
         <div class="bg-[#1c1239] text-white p-8">
           <h1 class="text-2xl font-bold mb-6">MY ACCOUNT</h1>
 
           <div class="border border-gray-700 rounded-lg p-6 mb-6n bg-[#0C0020]">
               <h2 class="text-xl font-bold mb-4">ACCOUNT INFORMATION</h2>
+              <hr class="my-4">
 
               <div class="mb-4">
                   <h3 class="text-lg font-semibold mb-2">CONTACT INFORMATION</h3>
-                  <p class="mb-2">SABRI CHRIF</p>
-                  <p>CHRIFSABRI700&#64;GMAIL.COM</p>
+                  <p class="mb-2">{{userData.first_name | uppercase}} {{userData.last_name | uppercase}}</p>
+                  <p> {{userData.email  | uppercase}} </p>
               </div>
 
               <div class="flex gap-4">
@@ -61,10 +63,10 @@
                   </div>
               </div>
 
-              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">MANAGE ADDRESSES</button>
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4" (click)="updateSection('ADDRESS BOOK')">MANAGE ADDRESSES</button>
           </div>
 
-          <button class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">DELETE ACCOUNT</button>
+          <button class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded" (click)="deleteAccount()">DELETE ACCOUNT</button>
       </div>
       </div>
       <div *ngSwitchCase="'MY ORDERS'">
@@ -90,14 +92,66 @@
       </div>
       <div *ngSwitchCase="'MY CDKEY COINS AND REWARDS'">Manage your CDKey coins and rewards here.</div>
       <div *ngSwitchCase="'BADGES'">These are your badges.</div>
-      <div *ngSwitchCase="'ADDRESS BOOK'">Here is your address book.</div>
+
+
+      <div *ngSwitchCase="'ADDRESS BOOK'">
+
+        <!-- add address section -->
+
+        <div class="bg-[#1c1239] text-white p-8">
+          <h2 class="text-2xl font-bold mb-4">ADDRESS</h2>
+
+          <div class="border border-gray-700 rounded-lg p-6 mb-4 bg-[#0C0020]">
+              <label for="street-address" class="block text-sm font-medium mb-2">STREET ADDRESS*</label>
+              <input type="text" id="street-address" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+              <label for="street-address 2" class="block text-sm font-medium mb-2">STREET ADDRESS 2</label>
+              <input type="text" id="street-address" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+              <label for="city" class="block text-sm font-medium mb-2">CITY*</label>
+              <input type="text" id="city" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+              <label for="state-province" class="block text-sm font-medium mb-2">STATE/PROVINCE*</label>
+              <input type="text" id="state-province" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+              <label for="zip-postal-code" class="block text-sm font-medium mb-2">ZIP/POSTAL CODE</label>
+              <input type="text" id="zip-postal-code" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+              <label for="country" class="block text-sm font-medium mb-2">COUNTRY*</label>
+              <input type="text" id="country" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+          </div>
+
+          <div class="flex gap-4">
+              <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">SAVE ADDRESS</button>
+              <button class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">GO BACK</button>
+          </div>
+      </div>
+
+      </div>
+
+
       <div *ngSwitchCase="'CARDS: STORED PAYMENT METHODS'">Manage your stored payment methods here.</div>
       <div *ngSwitchCase="'WISHLIST'">Here is your wishlist.</div>
       <div *ngSwitchCase="'MY PRODUCT REVIEWS'">These are your product reviews.</div>
       <div *ngSwitchCase="'GIFT CARDS'">View and manage your gift cards here.</div>
       <div *ngSwitchCase="'PROMOTIONS'">These are the available promotions.</div>
       <div *ngSwitchCase="'MESSAGES'">Here are your messages.</div>
-      <div *ngSwitchCase="'LOGOUT'">You have been logged out.</div>
+      <div *ngSwitchCase="'LOGOUT'" >
+
+        <!-- logout Section -->
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+
+        <div  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="bg-[#1c1239] p-6 rounded-lg">
+                <h2 class="text-xl font-bold mb-4">Are you sure you want to logout?</h2>
+                <div class="flex gap-4">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" (click)="logout()">Yes</button>
+                    <button class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded" (click)="clLogout()">No</button>
+                </div>
+            </div>
+        </div>
+
+      </div>
       <div *ngSwitchCase="'EDIT ACCOUNT INFORMATION'">
 
         <!-- EDIT Acount Infomation Section -->

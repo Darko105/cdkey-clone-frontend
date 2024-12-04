@@ -45,10 +45,9 @@ ngOnInit():void{
           this.userLoginResponseBase = data;
           if(this.userService.makeUserLogedIn(this.userLoginResponseBase)){
             localStorage.setItem('userData', JSON.stringify(data));
-            this.router.navigateByUrl('/')
+            window.location.reload();
+            this.router.navigateByUrl('/');
           }
-
-          console.log(localStorage.getItem('userData'))
         },
         error => {
           console.log(error);
@@ -83,10 +82,11 @@ ngOnInit():void{
           this.userCreationResponseBase = data;
           if(this.userService.makeUserLogedIn(this.userCreationResponseBase)){
             localStorage.setItem('userData', JSON.stringify(data));
-            this.router.navigateByUrl('/')
+            window.location.reload();
+            this.router.navigateByUrl('/');
           }
 
-          console.log(localStorage.getItem('userData'))
+
         },
         error => {
           console.log(error);

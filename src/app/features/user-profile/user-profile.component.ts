@@ -4,7 +4,6 @@ import { UserService } from './../../core/services/user.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { error } from 'console';
 import { OrderResponseBase, ResponseBillingAddressesBase, UserLoginResponseBase } from '../../shared/models/user/user-login-base';
 import { Observable } from 'rxjs';
 
@@ -74,6 +73,27 @@ export class UserProfileComponent {
   loadUserOrders(id:number):Observable<OrderResponseBase[]>{
     return this.userService.getUserOrders("users/"+id+"/orders");
   }
+
+
+  deleteAccount(){
+    let userresponse = confirm("Are you sur you want to delete your account. You wont be able to recover it back!")
+    if(userresponse){
+      if(this.userService.deleteUser("users/"+this.userData+"/delete")){
+        localStorage.removeItem('userData');
+      }
+      this.router.navigateByUrl("/");
+    }
+  }
+
+  logout(){
+      localStorage.removeItem('userData');
+      this.router.navigateByUrl("/");
+  }
+
+  clLogout(){
+    window.location.reload()
+  }
+
 
 
   // Method to update the selected section

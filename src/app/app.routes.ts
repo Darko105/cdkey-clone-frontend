@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
 import { ProductListingComponent } from './features/product-listing/product-listing.component';
 import { LoginSignupComponent } from './features/login-signup/login-signup.component';
+import { CheckoutComponent } from './features/checkout/checkout.component';
 
 export const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -14,6 +15,7 @@ export const routes: Routes = [
   {path:"user/:selected",component:UserProfileComponent},
   {path:'product-listing/:param',component:ProductListingComponent},
   {path:'login-signup',component:LoginSignupComponent},
+  {path:"checkout/:name/:id/:price/:img",component:CheckoutComponent}
 
 ];
 

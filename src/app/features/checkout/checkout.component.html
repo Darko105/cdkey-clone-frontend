@@ -1,0 +1,65 @@
+<div class="bg-[#0C0020] text-white p-8 grid grid-cols-2 gap-8">
+  <div>
+      <h2 class="text-2xl font-bold mb-4">Contact information</h2>
+
+      <label for="email" class="block text-sm font-medium mb-2">Email address</label>
+      <input type="email" id="email" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+      <h2 class="text-2xl font-bold mb-4 mt-4">Payment details</h2>
+
+      <label for="name-on-card" class="block text-sm font-medium mb-2">Name on card</label>
+      <input type="text" id="name-on-card" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+      <label for="card-number" class="block text-sm font-medium mb-2">Card number</label>
+      <input type="text" id="card-number" class="border border-gray-700 rounded-lg p-2 w-full mb-4">
+
+      <div class="flex gap-4 mb-4">
+          <div class="w-1/2">
+              <label for="expiration-date" class="block text-sm font-medium mb-2">Expiration date (MM/YY)</label>
+              <input type="text" id="expiration-date" class="border border-gray-700 rounded-lg p-2 w-full">
+          </div>
+          <div class="w-1/2">
+              <label for="cvc" class="block text-sm font-medium mb-2">CVC</label>
+              <input type="text" id="cvc" class="border border-gray-700 rounded-lg p-2 w-full">
+          </div>
+      </div>
+
+
+
+      <h2 class="text-2xl font-bold mb-4 mt-4">Billing information</h2>
+
+      <div class="flex items-center mb-4">
+          <input type="checkbox" id="same-as-shipping" class="mr-2">
+          <label for="same-as-shipping" class="block text-sm font-medium">Same as shipping information</label>
+      </div>
+
+      <p class="text-sm text-gray-400 mb-4">You won't be charged until the next step.</p>
+
+      <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" (click)="checkout()">Continue</button>
+  </div>
+
+  <div>
+      <h2 class="text-2xl font-bold mb-4">Order summary</h2>
+
+      <div class="flex items-center mb-4">
+          <img src={{img}} alt="Carry Clutch" class="w-12 h-12 mr-4">
+          <div>
+              <p class="text-sm font-bold">{{name}}</p>
+              <br>
+          </div>
+
+      </div>
+
+      <div class="mt-4">
+          <p class="text-sm font-bold">Subtotal</p>
+          <p class="text-sm font-bold">${{price}}</p>
+          <p class="text-sm font-bold">Taxes</p>
+          <p class="text-sm font-bold">${{price * 0.20}}</p>
+      </div>
+
+      <div class="mt-4">
+          <p class="text-lg font-bold">Total</p>
+          <p class="text-lg font-bold">$ {{price + tax}}</p>
+      </div>
+  </div>
+</div>

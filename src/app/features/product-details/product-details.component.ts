@@ -1,13 +1,16 @@
 import { Product, Results } from './../../shared/models/product';
 import { ProductService } from './../../core/services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterLink
+  ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
@@ -17,7 +20,7 @@ export class ProductDetailsComponent {
   result!:Results;
   kinguinParam!: string;
 
-  constructor(public getparam:ActivatedRoute,public productService:ProductService){
+  constructor(public getparam:ActivatedRoute,public productService:ProductService,public router:Router){
 
     this.getparam.params.subscribe(
       data => {
@@ -34,6 +37,7 @@ export class ProductDetailsComponent {
       }
     );
   }
+
 
 
 
