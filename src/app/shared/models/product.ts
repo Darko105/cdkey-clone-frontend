@@ -116,8 +116,8 @@ export class Offer {
 }
 
 export class Video {
-  url!: string;
-  title!: string;
+  video_id!: string;
+  name!: string;
 }
 
 export class SystemRequirement {

@@ -48,13 +48,13 @@
     </div>
 
 
-    <div *ngIf="user" class="user-logo">
-      <a href="#">
-        <img src="path_to_user_image" alt="User Profile" class="h-8 w-8 rounded-full">
+    <div *ngIf="checkUserLogedIn" class="user-logo">
+      <a [routerLink]="['/user']">
+        <img src="assets/images/cat.jpg" alt="User Avatar" class="h-8 w-8 rounded-full">
       </a>
     </div>
-    <div *ngIf="!user" class="login-option">
-      <a href="#">
+    <div *ngIf="!checkUserLogedIn()" class="login-option">
+      <a [routerLink]="['/login-signup']">
         <img src="https://www.cdkeys.com/static/version1731319934/frontend/Medialounge/cdkeys/en_GB/images/icons/white/account.svg" alt="Cart" class=" w-[42]px  h-[42]px">
       </a>
     </div>

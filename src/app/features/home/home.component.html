@@ -1,4 +1,4 @@
-<section class="home-section">
+<section class="home-section" *ngIf="products">
   <app-hero-section></app-hero-section>
 
   <div class=" w-[90%] relative inline-block text-white px-4 my-2 ml-16">
@@ -14,29 +14,30 @@
   </div>
 
 
-<div class="product-list grid grid-cols-5 gap-0 ml-[4.5rem] py-4 max-w-[90%]">
+  <div class="product-list grid grid-cols-5 gap-0 ml-[4.5rem] py-4 max-w-[90%]">
+    <ng-container>
+      <div class="product-items-wrapper" *ngFor="let ps of products.results">
+        <a routerLink="/product-details/{{ps.kinguinId}}">
+          <app-product
+          [product]="{
+            id: ps.kinguinId,
+            discount: 44,
+            name: ps.name,
+            coverImage: ps.images.cover.url,
+            price: ps.price || 0,
+            platformIcon: ps.platform,
+            currency:'USD',
+            oldPrice: ps.price + 10 || 0
+          }">
+        </app-product>
+        </a>
+      </div>
+    </ng-container>
+    <ng-template #noProducts>
+      <p>No products available.</p>
+    </ng-template>
+  </div>
 
-  <div class="product-items-wrapper" *ngFor="let ps of products.results">
-  <app-product
-    [product]="{
-    id: 'ps.kinguinId',
-    discount:44,
-    name:'product.name',
-
-    coverImage:'https://via.placeholder.com/800x400',
-    price: 22,
-    platformIcon:'https://via.placeholder.com/800x400',
-    currency:'test',
-    oldPrice:'test',
-
-    }">
-  </app-product>
-
-</div>
-
-
-
-</div>
 
 
 

@@ -27,12 +27,19 @@ export class ProductDetailsComponent {
     this.kinguinParam = "/"+this.id;
     this.productService.getProduct(this.kinguinParam).subscribe(
       data => {
-        this.product = data;
+        this.product = data; console.log(this.product)
       },
       error => {
         alert(error.details);
       }
     );
+  }
+
+
+
+  selectedTab: string = 'Information';
+  setTab(tab: string): void {
+    this.selectedTab = tab;
   }
 
 

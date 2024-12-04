@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProductService } from '../../core/services/product.service';
 import { Results } from '../../shared/models/product';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +19,13 @@ export class HomeComponent {
   kinguinParams!:string;
   constructor(public ps:ProductService) {
 
-    this.kinguinParams = "?updatedSince=2024-11-29&updatedTo=2024-11-29T23:59:59&page=1&limit=25&sortBy=updatedAt&sortType=desc&limit=15"
+    this.kinguinParams = "?updatedSince=2024-11-29&updatedTo=2024-11-29T23:59:59&page=1&limit=15&sortBy=updatedAt&sortType=desc"
     this.ps.getProducts(this.kinguinParams).subscribe(
       data => {
         this.products = data;console.log(this.products.results);
       },
       error => {alert(error.message)}
     );
-}
+  }
 
 }

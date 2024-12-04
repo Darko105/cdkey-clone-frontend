@@ -1,0 +1,25 @@
+  <!-- <section>
+    <div class="product-list grid grid-cols-5 gap-0 ml-[4.5rem] py-4 max-w-[90%]">
+      <ng-container>
+        <div class="product-items-wrapper" *ngFor="let ps of products.results">
+          <a routerLink="/product-details/{{ps.kinguinId}}">
+            <app-product
+            [product]="{
+              id: ps.kinguinId,
+              discount: 44,
+              name: ps.name,
+              coverImage: ps.images.cover.url,
+              price: ps.price || 0,
+              platformIcon: ps.platform,
+              currency:'USD',
+              oldPrice: ps.price + 10 || 0
+            }">
+          </app-product>
+          </a>
+        </div>
+      </ng-container>
+      <ng-template #noProducts>
+        <p>No products available.</p>
+      </ng-template>
+    </div>
+  </section> -->

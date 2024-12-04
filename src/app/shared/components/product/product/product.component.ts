@@ -17,10 +17,10 @@ export class ProductComponent {
   @Input() product!: {
     coverImage: string;
     currency: string;
-    oldPrice: string;
+    oldPrice: number;
     discount: number;
     platformIcon: string;
-    id: string;
+    id: number;
     name: string;
     price: number;
   };

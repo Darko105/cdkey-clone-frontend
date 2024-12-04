@@ -1,1 +1,36 @@
-<p>user-profile works!</p>
+<div class="user-profile-wrapper m-auto max-w-[90%] min-w-[90%] mt-16 justify-between flex flex-row">
+  <!-- Sidebar Buttons -->
+  <div class="sections-wrapper w-[27%] bg-[#0C0020] text-l flex flex-col list-none">
+    <li
+      *ngFor="let section of ['MY ACCOUNT', 'MY ORDERS', 'MY CDKEY COINS AND REWARDS', 'BADGES', 'ADDRESS BOOK', 'CARDS: STORED PAYMENT METHODS', 'WISHLIST', 'MY PRODUCT REVIEWS', 'GIFT CARDS', 'PROMOTIONS', 'MESSAGES', 'LOGOUT']"
+      [class.bg-[#1F143D]]="selectedSection === section"
+      [class.text-blue-500]="selectedSection === section"
+      [class.shadow-[0_0_10px_#3b82f6]]="selectedSection === section"
+      [class.text-white]="selectedSection === section"
+      class="pl-5 py-4 px-9 text-end text-nowrap hover:bg-[#1F143D] hover:text-blue-500 hover:shadow-[0_0_10px_#3b82f6] transition duration-300"
+    >
+      <button (click)="updateSection(section)">
+        {{ section }}
+      </button>
+    </li>
+  </div>
+
+  <!-- Generative Section -->
+  <div class="generative-user-actions w-full h-screen border border-white ml-16 p-4">
+    <ng-container [ngSwitch]="selectedSection">
+      <p *ngSwitchCase="'MY ACCOUNT'">You are viewing your account details.</p>
+      <p *ngSwitchCase="'MY ORDERS'">Here are your orders.</p>
+      <p *ngSwitchCase="'MY CDKEY COINS AND REWARDS'">Manage your CDKey coins and rewards here.</p>
+      <p *ngSwitchCase="'BADGES'">These are your badges.</p>
+      <p *ngSwitchCase="'ADDRESS BOOK'">Here is your address book.</p>
+      <p *ngSwitchCase="'CARDS: STORED PAYMENT METHODS'">Manage your stored payment methods here.</p>
+      <p *ngSwitchCase="'WISHLIST'">Here is your wishlist.</p>
+      <p *ngSwitchCase="'MY PRODUCT REVIEWS'">These are your product reviews.</p>
+      <p *ngSwitchCase="'GIFT CARDS'">View and manage your gift cards here.</p>
+      <p *ngSwitchCase="'PROMOTIONS'">These are the available promotions.</p>
+      <p *ngSwitchCase="'MESSAGES'">Here are your messages.</p>
+      <p *ngSwitchCase="'LOGOUT'">You have been logged out.</p>
+      <p *ngSwitchDefault>Select a section to view details.</p>
+    </ng-container>
+  </div>
+</div>
