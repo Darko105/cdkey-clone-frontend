@@ -190,7 +190,6 @@ export class OrderCreationBase{
   product_img: string;
   product_name: string;
   user_id: number;
-  order_date: Date;
   key: string;
   total_amount: string;
 
@@ -199,7 +198,6 @@ export class OrderCreationBase{
   product_img: string,
   product_name: string,
   user_id: number,
-  order_date: Date,
   key: string,
   total_amount: string
   ){
@@ -207,7 +205,6 @@ export class OrderCreationBase{
     this.product_img = product_img;
     this.product_name = product_name;
     this.user_id = user_id;
-    this.order_date = order_date;
     this.key = key;
     this.total_amount = total_amount;
   }

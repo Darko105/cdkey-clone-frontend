@@ -1,6 +1,7 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { OrderResponseBase, ResponseBillingAddressesBase, UserCreationBase, UserCreationResponseBase, UserLoginBase, UserLoginResponseBase } from '../../shared/models/user/user-login-base';
+import { OrderResponseBase,OrderCreationBase, ResponseBillingAddressesBase, UserCreationBase, UserCreationResponseBase, UserLoginBase, UserLoginResponseBase } from '../../shared/models/user/user-login-base';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -45,7 +46,9 @@ export class UserService {
     return this.hc.get<OrderResponseBase[]>(this.fastApiUrl + endPoint)
   }
 
-  setOrder(body:OrderCreationBase)
+  setOrder(body:OrderCreationBase,endPoint:string){
+    return this.hc.post<any>(this.fastApiUrl + endPoint,body)
+  }
 
 
   makeUserLogedIn(user:UserLoginResponseBase) {

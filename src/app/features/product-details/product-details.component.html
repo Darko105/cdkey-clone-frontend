@@ -40,7 +40,7 @@
       <!-- Buy Now Buttons -->
       <div class="flex flex-col space-y-4">
         <a [routerLink]="['/checkout', product.name, product.kinguinId, product.price,product.images.cover.url]"
-          class="w-full bg-green-500 py-3 rounded-md text-white font-bold hover:bg-green-600"
+          class="w-full bg-green-500 py-3 rounded-md text-white font-bold hover:bg-green-600 text-center"
         >
   Buy Now
 </a>
@@ -73,15 +73,16 @@
   </div>
 
   <!-- You May Also Like -->
-  <div class="mt-12">
+  <div class="mt-12" >
     <h2 class="text-2xl font-bold mb-4">You May Also Like</h2>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
 
-      <div class="bg-gray-800 p-4 rounded-md shadow-md">
-        <img src="https://via.placeholder.com/150" alt="Game" class="w-full rounded-md">
-        <div class="mt-2 text-sm">Ghost of Tsushima PC</div>
-        <div class="text-green-400 font-bold">£30.99</div>
-        <button class="mt-2 w-full bg-green-500 py-2 rounded-md text-sm text-white">Buy Now</button>
+      <div class="bg-gray-800 p-4 rounded-md shadow-md" *ngFor="let rs of result.results">
+        <a [routerLink]="['/product-details',rs.kinguinId]">
+        <img src="{{rs.images.cover.url || 'https://via.placeholder.com/150'}}" alt="Game" class="w-full rounded-md">
+        <div class="mt-2 text-sm">{{rs.name}}</div>
+        <div class="text-green-400 font-bold">£ {{rs.price}}</div>
+        </a>
       </div>
     </div>
   </div>
@@ -146,7 +147,7 @@
       class=" m-auto"
       width="560"
       height="315"
-      src="https://www.youtube.com/embed/dE3DgPRus4Q"
+      src="https://www.youtube.com/embed/{{product.videos[0].video_id}}"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

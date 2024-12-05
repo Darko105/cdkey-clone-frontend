@@ -36,7 +36,20 @@ export class ProductDetailsComponent {
         alert(error.details);
       }
     );
+
+
+    this.kinguinParam = "?page=1&limit=4&sortBy=updatedAt&sortType=desc";
+    this.productService.getProducts(this.kinguinParam).subscribe(
+      data => {
+        this.result = data; console.log(this.result)
+      },
+      error => {
+        alert(error.details);
+      }
+    );
   }
+
+
 
 
 
