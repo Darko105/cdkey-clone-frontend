@@ -29,7 +29,7 @@ constructor(public userService:UserService,public router:Router){}
 ngOnInit():void{
   let user:UserLoginResponseBase = JSON.parse(localStorage.getItem('userData')!);
   if(user){
-    this.router.navigateByUrl('/user');
+    this.router.navigateByUrl('/user/MY ACCOUNT');
   }
 }
 
@@ -45,7 +45,6 @@ ngOnInit():void{
           this.userLoginResponseBase = data;
           if(this.userService.makeUserLogedIn(this.userLoginResponseBase)){
             localStorage.setItem('userData', JSON.stringify(data));
-            window.location.reload();
             this.router.navigateByUrl('/');
           }
         },
@@ -82,7 +81,6 @@ ngOnInit():void{
           this.userCreationResponseBase = data;
           if(this.userService.makeUserLogedIn(this.userCreationResponseBase)){
             localStorage.setItem('userData', JSON.stringify(data));
-            window.location.reload();
             this.router.navigateByUrl('/');
           }
 

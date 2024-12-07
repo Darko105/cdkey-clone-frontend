@@ -20,7 +20,11 @@ export class ProductDetailsComponent {
   result!:Results;
   kinguinParam!: string;
 
-  constructor(public getparam:ActivatedRoute,public productService:ProductService,public router:Router){
+  constructor(
+    public getparam:ActivatedRoute,
+    public productService:ProductService,
+    public router:Router
+  ){
 
     this.getparam.params.subscribe(
       data => {

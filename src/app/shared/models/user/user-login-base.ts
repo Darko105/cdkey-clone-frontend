@@ -10,6 +10,8 @@ export class UserLoginBase {
   }
 }
 
+
+
 export class UserLoginResponseBase{
   id!: number;
   first_name!:string;
